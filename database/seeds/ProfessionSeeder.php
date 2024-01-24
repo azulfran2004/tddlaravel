@@ -23,37 +23,24 @@ class ProfessionSeeder extends Seeder
             'sector' => 'aaa',
             'salary' => '1',
             'experience_required' => '1',
-
         ]);
+        Profession::create([
+            'title' => 'b',
+            'description' => 'b',
+            'education_level' => 'b',
+            'sector' => 'b',
+            'salary' => '1',
+            'experience_required' => '1',
+        ]);
+        Profession::create([
+            'title' => 'x',
+            'description' => 'x',
+            'education_level' => 'x',
+            'sector' => 'x',
+            'salary' => '1',
+            'experience_required' => '1',
+        ]);
+
         factory(Profession::class, 17)->create();
-
-        $this->fetchRelations();
-        foreach (range(1, 999) as $i) {
-            $this->createRandomprofession();
-        }
-        
-        
-
-    }
-
-
-    private function fetchRelations()
-    {
-
-        $this->skills = Skill::all();
-    }
-
-
-    private function createRandomprofession(): void
-    {
-        $profession = factory(Profession::class)->create();
-
-        $numSkills = $this->skills->count();
-
-        $profession->skills()->attach($this->skills->random(rand(0, $numSkills)));
-
-        factory(\App\Login::class)->times(rand(1, 10))->create([
-            'user_id' => $profession->id,
-        ]);
     }
 }
