@@ -17,6 +17,15 @@ class CreateProfessionsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('title', 100)->unique();
+            $table->string('description');
+            $table->string('education_level');
+            $table->string('sector');
+            $table->unsignedBigInteger('salary');
+            $table->unsignedBigInteger('experience_required');
+
+
+
+
 
             $table->timestamps();
             $table->softDeletes();
