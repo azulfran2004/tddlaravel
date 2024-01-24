@@ -12,4 +12,8 @@ class Profession extends Model
     {
         return $this->hasMany(UserProfile::class);
     }
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class);
+    }
 }
