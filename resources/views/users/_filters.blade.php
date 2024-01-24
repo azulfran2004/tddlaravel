@@ -32,7 +32,7 @@
                                                         class="material-icons dp30">search</span></button>
                                         </div>-->
                 </div>
-
+                
                 <div class="btn-group">
                     <select name="role" id="role" class="select-field">
                         @foreach(trans('users.filters.roles') as $value => $text)
@@ -58,6 +58,7 @@
                         @endforeach
                     </div>
                 </div>
+                
             </div>
         </div>
 

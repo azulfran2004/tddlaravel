@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Profession;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Skill;
+use App\Sortable;
+use App\User;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProfessionController extends Controller
 {
     public function index()
     {
+        $profession = Profession::withCount('profiles')->orderBy('title')
+        ->paginate(10)
+        ;
+
         return view('professions.index', [
-            'professions' => Profession::withCount('profiles')->orderBy('title')->get(),
+            'professions' => $profession,
         ]);
     }
 

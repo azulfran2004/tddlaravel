@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Filters\ProfessionFilter;
 use Illuminate\Database\Eloquent\Model;
 
 class Profession extends Model
@@ -16,4 +17,9 @@ class Profession extends Model
     {
         return $this->belongsToMany(Skill::class);
     }
+    public function newQueryFilter()
+    {
+        return new ProfessionFilter;
+    }
+
 }
